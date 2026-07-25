@@ -1,0 +1,791 @@
+<title>2022 개정 수학과 교육과정 인출 연습</title>
+<style>
+  :root {
+    --paper: #EEF2ED;
+    --paper-line: rgba(38,65,54,0.09);
+    --paper-line-strong: rgba(38,65,54,0.16);
+    --surface: #FFFFFF;
+    --surface-2: #F5F8F4;
+    --ink: #172019;
+    --ink-soft: #55655C;
+    --ink-faint: #8A9990;
+    --accent: #26415C;
+    --accent-soft: #DCE6EF;
+    --red: #A6392E;
+    --red-soft: #F6E3E0;
+    --green: #2F6B4E;
+    --green-soft: #DDEEE3;
+    --amber: #96650E;
+    --amber-soft: #F3E6CD;
+    --border: rgba(23,32,25,0.14);
+    --shadow: rgba(23,32,25,0.12);
+    --font-serif: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+    --font-sans: "Pretendard", "Noto Sans KR", "Malgun Gothic", -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "D2Coding", "Consolas", "SFMono-Regular", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #11170F;
+      --paper-line: rgba(255,255,255,0.055);
+      --paper-line-strong: rgba(255,255,255,0.09);
+      --surface: #182019;
+      --surface-2: #1D2620;
+      --ink: #E7EEE7;
+      --ink-soft: #A9B7AC;
+      --ink-faint: #6E7C71;
+      --accent: #8FB3D9;
+      --accent-soft: #22354A;
+      --red: #E38176;
+      --red-soft: #402420;
+      --green: #7FC49E;
+      --green-soft: #1E3327;
+      --amber: #E3B563;
+      --amber-soft: #3A2E16;
+      --border: rgba(255,255,255,0.13);
+      --shadow: rgba(0,0,0,0.45);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #11170F;
+    --paper-line: rgba(255,255,255,0.055);
+    --paper-line-strong: rgba(255,255,255,0.09);
+    --surface: #182019;
+    --surface-2: #1D2620;
+    --ink: #E7EEE7;
+    --ink-soft: #A9B7AC;
+    --ink-faint: #6E7C71;
+    --accent: #8FB3D9;
+    --accent-soft: #22354A;
+    --red: #E38176;
+    --red-soft: #402420;
+    --green: #7FC49E;
+    --green-soft: #1E3327;
+    --amber: #E3B563;
+    --amber-soft: #3A2E16;
+    --border: rgba(255,255,255,0.13);
+    --shadow: rgba(0,0,0,0.45);
+  }
+  :root[data-theme="light"] {
+    --paper: #EEF2ED;
+    --paper-line: rgba(38,65,54,0.09);
+    --paper-line-strong: rgba(38,65,54,0.16);
+    --surface: #FFFFFF;
+    --surface-2: #F5F8F4;
+    --ink: #172019;
+    --ink-soft: #55655C;
+    --ink-faint: #8A9990;
+    --accent: #26415C;
+    --accent-soft: #DCE6EF;
+    --red: #A6392E;
+    --red-soft: #F6E3E0;
+    --green: #2F6B4E;
+    --green-soft: #DDEEE3;
+    --amber: #96650E;
+    --amber-soft: #F3E6CD;
+    --border: rgba(23,32,25,0.14);
+    --shadow: rgba(23,32,25,0.12);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--ink);
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 23px, var(--paper-line) 23px, var(--paper-line) 24px),
+      repeating-linear-gradient(90deg, transparent, transparent 23px, var(--paper-line) 23px, var(--paper-line) 24px),
+      var(--paper);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  button { font-family: inherit; }
+  ::selection { background: var(--accent-soft); }
+
+  .app { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  .topbar {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 18px; margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar h1 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .topbar .sub {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .stat-pill {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.85rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 14px;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+  .stat-pill .track {
+    width: 70px; height: 6px; border-radius: 999px; background: var(--surface-2);
+    overflow: hidden; border: 1px solid var(--border);
+  }
+  .stat-pill .fill { height: 100%; background: var(--green); }
+
+  .notice {
+    background: var(--amber-soft);
+    border: 1px solid color-mix(in srgb, var(--amber) 45%, transparent);
+    color: var(--ink);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .notice strong { color: var(--amber); }
+  .notice button.dismiss {
+    margin-left: auto; flex: none;
+    background: none; border: none; color: var(--ink-soft); cursor: pointer;
+    font-size: 0.8rem; text-decoration: underline; padding: 0;
+  }
+
+  .layout { display: grid; grid-template-columns: 230px 1fr; gap: 24px; align-items: start; }
+  @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } }
+
+  .sidebar {
+    display: flex; flex-direction: column; gap: 6px;
+    position: sticky; top: 20px;
+  }
+  @media (max-width: 800px) {
+    .sidebar { position: static; flex-direction: row; overflow-x: auto; padding-bottom: 6px; }
+  }
+  .sec-btn {
+    text-align: left;
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .sec-btn:hover { background: var(--surface-2); }
+  .sec-btn.active {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--ink);
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  .sec-btn .name { font-size: 0.88rem; font-weight: 600; }
+  .sec-btn .count { font-size: 0.72rem; font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink-faint); }
+  .sec-btn .bar { height: 4px; border-radius: 999px; background: var(--surface-2); overflow: hidden; margin-top: 2px; }
+  .sec-btn .bar i { display: block; height: 100%; background: var(--green); }
+
+  .stage { min-width: 0; }
+
+  .mode-row { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+  .mode-tabs { display: flex; gap: 6px; background: var(--surface-2); padding: 4px; border-radius: 10px; border: 1px solid var(--border); }
+  .mode-tabs button {
+    border: none; background: transparent; padding: 7px 14px; border-radius: 8px;
+    font-size: 0.82rem; color: var(--ink-soft); cursor: pointer;
+  }
+  .mode-tabs button.active { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 1px 2px var(--shadow); }
+
+  select.filter {
+    font-size: 0.8rem; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--ink);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px 24px;
+    box-shadow: 0 2px 10px var(--shadow);
+  }
+
+  .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+  .badge-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .code-badge {
+    font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .sec-label { font-size: 0.72rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .flag-badge {
+    font-size: 0.68rem; padding: 2px 8px; border-radius: 999px;
+    background: var(--amber-soft); color: var(--amber); border: 1px solid color-mix(in srgb, var(--amber) 40%, transparent);
+    white-space: nowrap;
+  }
+  .status-badge {
+    font-size: 0.72rem; padding: 3px 10px; border-radius: 999px; font-weight: 600;
+  }
+  .status-O { background: var(--green-soft); color: var(--green); }
+  .status-△ { background: var(--amber-soft); color: var(--amber); }
+  .status-X { background: var(--red-soft); color: var(--red); }
+
+  label.field-label { display: block; font-size: 0.76rem; color: var(--ink-faint); margin-bottom: 6px; letter-spacing: 0.02em; }
+
+  textarea.recall-input {
+    width: 100%; min-height: 150px; resize: vertical;
+    font-family: var(--font-sans); font-size: 0.95rem; line-height: 24px; color: var(--accent);
+    padding: 10px 12px; border-radius: 10px;
+    border: 1px solid var(--border);
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 23px, var(--paper-line-strong) 23px, var(--paper-line-strong) 24px),
+      var(--surface-2);
+    outline: none;
+  }
+  textarea.recall-input:focus { border-color: var(--accent); }
+
+  .actions-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  button.btn {
+    border-radius: 9px; border: 1px solid var(--border); background: var(--surface);
+    padding: 9px 16px; font-size: 0.85rem; cursor: pointer; color: var(--ink);
+  }
+  button.btn:hover { background: var(--surface-2); }
+  button.btn:focus-visible, textarea:focus-visible, select:focus-visible, [contenteditable]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.btn.primary { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+  button.btn.primary:hover { filter: brightness(1.08); }
+  button.btn.ghost { background: transparent; }
+
+  .reveal {
+    margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border);
+  }
+  .reveal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .reveal-head .tag { font-size: 0.74rem; color: var(--red); font-weight: 700; letter-spacing: 0.03em; }
+  .pencil-btn { background: none; border: none; cursor: pointer; color: var(--ink-faint); font-size: 0.78rem; text-decoration: underline; padding: 2px; }
+  .answer-text {
+    font-family: var(--font-serif); font-size: 1rem; line-height: 1.85; color: var(--red);
+    border-left: 3px solid var(--red); padding-left: 14px;
+  }
+  .answer-text p { margin: 0 0 10px; }
+  .answer-text p:last-child { margin-bottom: 0; }
+  .flag-inline { color: var(--amber); font-family: var(--font-sans); font-size: 0.86em; background: var(--amber-soft); padding: 1px 6px; border-radius: 5px; }
+  .answer-edit {
+    font-family: var(--font-serif); font-size: 1rem; line-height: 1.85; color: var(--ink);
+    border: 1px solid var(--accent); border-radius: 8px; padding: 10px 12px; min-height: 120px;
+    white-space: pre-wrap;
+  }
+  .edit-note { font-size: 0.74rem; color: var(--ink-faint); margin-top: 6px; }
+
+  .grade-row { display: flex; gap: 8px; margin-top: 16px; align-items: center; flex-wrap: wrap; }
+  .grade-row .label { font-size: 0.78rem; color: var(--ink-faint); margin-right: 4px; }
+  button.grade-btn {
+    border-radius: 999px; padding: 8px 16px; font-size: 0.85rem; font-weight: 700; cursor: pointer;
+    border: 1.5px solid var(--border); background: var(--surface); color: var(--ink-soft);
+  }
+  button.grade-btn[data-g="O"] { border-color: color-mix(in srgb, var(--green) 55%, transparent); }
+  button.grade-btn[data-g="O"].active { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+  button.grade-btn[data-g="△"] { border-color: color-mix(in srgb, var(--amber) 55%, transparent); }
+  button.grade-btn[data-g="△"].active { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+  button.grade-btn[data-g="X"] { border-color: color-mix(in srgb, var(--red) 55%, transparent); }
+  button.grade-btn[data-g="X"].active { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+
+  .nav-row { display: flex; justify-content: space-between; margin-top: 22px; gap: 10px; }
+  .nav-row .right { display: flex; gap: 8px; }
+  .progress-mini { font-size: 0.78rem; color: var(--ink-faint); font-family: var(--font-mono); font-variant-numeric: tabular-nums; align-self: center; }
+
+  .blank-wrap .card { min-height: 420px; }
+  .blank-wrap textarea.recall-input { min-height: 320px; }
+  .full-answer p { margin: 0 0 12px; }
+
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--ink-faint); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card { transition: box-shadow 0.15s ease; }
+  }
+</style>
+
+<div class="app">
+  <div class="topbar">
+    <div>
+      <h1>2022 개정 수학과 교육과정 — 백지 인출 연습</h1>
+      <div class="sub">교수·학습 / 평가 (1~2쪽) · 항목을 보고 직접 써본 뒤 원문과 대조하세요</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+      <div id="authArea"></div>
+      <div class="stat-pill">
+        <span id="overallStat">0 / 0 완료</span>
+        <span class="track"><span class="fill" id="overallFill" style="width:0%"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice" id="notice">
+    <span>ℹ</span>
+    <div>
+      <strong>안내.</strong> 원본 PDF는 26쪽 중 1~2쪽만 텍스트로 되어 있고 나머지(성취기준 표 등)는 이미지라 이 도구에 포함하지 못했습니다.
+      1~2쪽 내용은 OCR본으로 재대조하여 정확하게 정리했습니다. 그래도 원문과 다르게 읽힌 부분을 발견하면
+      정답 확인 후 연필 아이콘(✎)을 눌러 직접 고쳐 쓰면 그대로 저장됩니다.
+      <button class="dismiss" onclick="document.getElementById('notice').style.display='none'">닫기</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="stage">
+      <div class="mode-row">
+        <div class="mode-tabs">
+          <button id="tabItem" class="active">항목별 인출</button>
+          <button id="tabBlank">백지 전체 인출</button>
+        </div>
+        <select class="filter" id="filterSelect">
+          <option value="all">전체 보기</option>
+          <option value="review">복습 필요 (X·△·미채점)</option>
+          <option value="done">완료(O)만</option>
+        </select>
+      </div>
+
+      <div id="itemView"></div>
+      <div id="blankView" style="display:none"></div>
+    </main>
+  </div>
+</div>
+
+<script>
+const DATA = [
+{id:"g0", section:"goal", code:"목표", label:"총괄 목표 (수학 교과 역량)", flagged:false,
+ answer:"수학의 개념, 원리, 법칙을 이해하고 수학의 가치를 인식하며 바람직한 수학적 태도를 길러 수학적으로 추론하고 의사소통하며 다양한 현상과 연결하여 정보를 처리하고 문제를 창의적으로 해결하는 수학 교과 역량을 함양한다."},
+{id:"g1", section:"goal", code:"(1)", label:"목표 (1)", flagged:false,
+ answer:"수학적 지식을 이해하고 활용하여 적극적이고 자신감 있게 여러 가지 문제를 해결한다."},
+{id:"g2", section:"goal", code:"(2)", label:"목표 (2)", flagged:false,
+ answer:"수학적 사실에 대해 흥미와 관심을 갖고 추측과 정당화를 통해 추론한다."},
+{id:"g3", section:"goal", code:"(3)", label:"목표 (3)", flagged:false,
+ answer:"수학적 사고와 전략에 대해 의사소통하고 수학적 표현의 편리함을 인식한다."},
+{id:"g4", section:"goal", code:"(4)", label:"목표 (4)", flagged:false,
+ answer:"수학의 개념, 원리, 법칙 간의 관련성을 탐구하고 실생활이나 타 교과에 수학을 적용하여 수학의 유용성을 인식한다."},
+{id:"g5", section:"goal", code:"(5)", label:"목표 (5)", flagged:false,
+ answer:"목적에 맞게 교구나 공학 도구를 활용하며 자료를 수집하고 처리하여 정보에 근거한 합리적 의사 결정을 한다."},
+
+{id:"td-ga", section:"teach-dir", code:"(가)", label:"교수·학습의 방향 (가)", flagged:false,
+ answer:"수학과 교육과정에 제시된 성격, 목표, 내용 체계, 성취기준, 평가와 일관성을 가지도록 교수·학습을 운영한다."},
+{id:"td-na", section:"teach-dir", code:"(나)", label:"교수·학습의 방향 (나)", flagged:false,
+ answer:"핵심 아이디어를 중심으로 수학의 지식·이해, 과정·기능, 가치·태도를 통합적으로 교수·학습하여 수학 교과 역량을 함양하고 수리 소양을 갖추게 한다. 그리고 학생들이 수학 학습에 주도적으로 참여하는 교수·학습 환경과 분위기를 조성한다.\n① 수학 학습의 주체가 학생 자신임을 인식하고 수학 학습에 적극적으로 참여하도록 유도한다.\n② 스스로 수학 학습 목표와 계획을 세우고 학습 결과를 평가하고 성찰하도록 안내한다.\n③ 수학을 효과적으로 학습하는 방법을 탐색하고 자신의 학습 과정과 태도를 돌아보고 조절하는 자기주도적 학습 습관을 형성하도록 지도한다.\n④ 교사 및 동료와 협력적 관계 속에서 수학 학습에 대한 조언과 의견을 경청하고 수용할 수 있도록 허용적인 분위기를 조성한다.\n⑤ 수학 학습에 자신감을 가지고 실수가 배움의 기회임을 인식하며 끈기 있게 도전하도록 격려하고 지원한다."},
+{id:"td-da", section:"teach-dir", code:"(다)", label:"교수·학습의 방향 (다)", flagged:false,
+ answer:"학생이 주도적으로 수학을 학습하여 수학과 교육과정에 제시된 목표를 달성하도록 교수·학습을 운영한다."},
+{id:"td-ra", section:"teach-dir", code:"(라)", label:"교수·학습의 방향 (라)", flagged:false,
+ answer:"수학 내용 특성에 적합한 교구나 공학 도구를 선택하여 효율적인 교수·학습이 이루어지도록 하고 학생들의 디지털 소양 함양을 도모한다. 그리고 수학 교과서 읽기, 수학 학습 과정과 결과 쓰기, 문장제 해결 등을 통해 학생들의 언어 소양 함양을 도모한다."},
+{id:"td-ma", section:"teach-dir", code:"(마)", label:"교수·학습의 방향 (마)", flagged:false,
+ answer:"수학 내용의 특성, 학교 여건, 학생의 학습 능력과 수준 등을 고려하여 교수·학습을 운영한다."},
+{id:"td-ba", section:"teach-dir", code:"(바)", label:"교수·학습의 방향 (바)", flagged:false,
+ answer:"학생 개인의 필요, 수학 학습 속도, 학습 능력 등을 고려하여 학생 맞춤형 수업을 실시하고 보충 학습과 심화 학습의 기회를 제공한다."},
+{id:"td-sa", section:"teach-dir", code:"(사)", label:"교수·학습의 방향 (사)", flagged:false,
+ answer:"수학 교수·학습에서 범교과 학습 주제(안전·건강, 인성, 진로, 민주 시민, 인권, 다문화, 통일, 독도, 경제·금융, 환경·지속가능발전 등)를 현상이나 소재로 선택하여 활용할 수 있다."},
+{id:"td-aa", section:"teach-dir", code:"(아)", label:"교수·학습의 방향 (아)", flagged:false,
+ answer:"사회적 환경, 학생의 요구, 수학 내용의 특성, 수업 방식 등에 따라 온라인을 활용한 교수·학습을 운영할 수 있다."},
+{id:"td-ja", section:"teach-dir", code:"(자)", label:"교수·학습의 방향 (자)", flagged:false,
+ answer:"학교급 전환에 따라 변화되는 수학 내용과 수업 방법을 파악하여 교수·학습에 적용하고, 진로연계교육에서 이를 고려한다."},
+{id:"td-cha", section:"teach-dir", code:"(차)", label:"교수·학습의 방향 (차)", flagged:false,
+ answer:"수학과 교수·학습 계획을 수립하거나 교수·학습 자료 개발 등을 할 때 교육과정을 재구성할 수 있다."},
+
+{id:"tm-mun", section:"teach-method", code:"(가)①", label:"교수·학습 방법 (가) — 문제해결 역량", flagged:false,
+ answer:"수학 교과 역량 함양을 통해 수학을 깊이 있게 학습하고 적용할 기회를 제공한다. 다음과 같은 교수·학습 방법을 통해 문제해결 역량을 함양하게 한다.\n- 수학의 개념, 원리, 법칙을 이용하여 해결 가능한 문제를 학생에게 제시한다. 이때 다양한 방법으로 해결 가능한 문제, 여러 가지 해답이 나올 수 있는 문제 등을 활용할 수 있다.\n- 문제에 주어진 조건과 정보를 분석하고 적절한 문제해결 계획을 수립하고 실행하며 문제해결 과정을 반성하도록 구체적인 발문과 권고를 제시한다.\n- 문제해결 과정 및 결과의 의미를 재해석하여 주어진 문제를 변형하거나 새로운 문제를 만들어 해결하게 한다.\n- 성공적인 문제해결 경험을 바탕으로 적극적이고 자신감 있게 문제해결에 참여하게 하고, 단번에 답이 나오지 않는 문제라도 끈기 있게 도전하여 성취감을 느끼게 한다."},
+{id:"tm-chu", section:"teach-method", code:"(가)②", label:"교수·학습 방법 (가) — 추론 역량", flagged:false,
+ answer:"다음과 같은 교수·학습 방법을 통해 추론 역량을 함양하게 한다.\n- 관찰, 실험, 측정 등 구체적 조작 활동을 통해 수학의 개념, 원리, 법칙에 흥미와 관심을 갖고 다양한 방법으로 탐구하고 이해하게 한다.\n- 귀납, 유추 등의 개연적 추론을 통해 수학적 추측을 제기하고 정당화하며, 수학적 증거와 논리적 근거를 바탕으로 비판적으로 사고하는 태도를 갖게 한다.\n- 수학의 개념, 원리, 법칙을 도출하는 과정과 수학적 절차를 논리적이고 체계적으로 수행하고 반성하게 한다."},
+{id:"tm-ui", section:"teach-method", code:"(가)③", label:"교수·학습 방법 (가) — 의사소통 역량", flagged:false,
+ answer:"다음과 같은 교수·학습 방법을 통해 의사소통 역량을 함양하게 한다.\n- 수학 용어, 기호, 표, 그래프 등의 수학적 표현을 정확하게 사용하고 표현끼리 변환하게 한다.\n- 학생이 자신의 사고와 전략을 수학적 표현으로 나타내고 설명하면서 수학적 표현의 편리함을 인식하게 한다.\n- 학생 간 상호 작용과 질문이 활발한 교실 문화를 조성하고 수학적으로 의미 있는 의사소통이 이루어지도록 적절한 과제를 제시하고 안내한다.\n- 수학적 아이디어에 대해 상호 작용하는 과정에서 타인을 배려하고 의견을 존중하는 태도를 기르게 한다."},
+{id:"tm-yeon", section:"teach-method", code:"(가)④", label:"교수·학습 방법 (가) — 연결 역량", flagged:false,
+ answer:"다음과 같은 교수·학습 방법을 통해 연결 역량을 함양하게 한다.\n- 영역이나 학년(군) 내용 간에 관련된 수학의 개념, 원리, 법칙 등을 유기적으로 연계하여 새로운 지식을 생성하면서 창의성을 기르게 한다.\n- 수학과 실생활, 사회 및 자연 현상, 타 교과의 내용을 연계하는 과제를 활용하여 수학의 유용성을 인식하게 한다."},
+{id:"tm-jung", section:"teach-method", code:"(가)⑤", label:"교수·학습 방법 (가) — 정보처리 역량", flagged:false,
+ answer:"다음과 같은 교수·학습 방법을 통해 정보처리 역량을 함양하게 한다.\n- 실생활 및 수학적 문제 상황에서 자료를 탐색하고 수집하며 수학적으로 처리하여 합리적인 의사 결정을 하는 태도를 기르게 한다.\n- 교구나 공학 도구를 활용하여 추상적인 수학 내용을 시각화하고 수학의 개념, 원리, 법칙에 대한 직관적 이해와 논리적 사고를 돕는다.\n- 학생이 주도적으로 교구나 공학 도구를 활용하여 탐구하게 한다.\n- 계산 기능 함양을 목표로 하지 않는 교수·학습 상황에서는 복잡한 계산을 할 때 공학 도구를 이용할 수 있게 한다."},
+{id:"tm-da", section:"teach-method", code:"(다)", label:"교수·학습 방법 (다) — 수업 방안 7가지", flagged:false,
+ answer:"수학과의 수업은 학습 내용, 학생의 학습 능력과 수준 등을 고려하여 다음의 교수·학습 방안을 적절히 선택하여 적용한다.\n① 설명식 교수는 교사가 설명과 시연을 통해 수업을 주도하는 교수·학습 방안으로, 수업 내용을 구조화하여 체계적으로 지도하는 데 효과적이다. 이때, 교사는 학생의 적극적인 수업 참여를 유도하고, 사고를 촉진하는 발문을 적절히 활용한다.\n② 토의·토론 학습은 특정 주제에 대해 협의하거나 논의하는 교수·학습 방안으로, 학생들이 수학 내용을 폭넓게 이해하고 자신의 주장을 효과적으로 표현하고 다른 사람의 의견을 비판적 사고를 통해 수용하여 합리적으로 의사 결정하는 태도를 기를 수 있게 한다.\n③ 협력 학습은 모둠 내의 상호 작용, 의사소통, 참여를 통해 공동의 학습 목표에 도달하도록 하는 교수·학습 방안으로, 다른 사람을 존중하고 배려하며 모둠 내의 역할을 수행하고 책임감을 기를 수 있게 한다.\n④ 탐구 학습은 학생이 중심이 되어 수학의 개념, 원리, 법칙을 발견하고 구성하는 교수·학습 방안으로, 학생 스스로 자료와 정보로부터 지식을 도출하거나 지식의 타당성을 확인하는 것이 중요함을 알게 할 수 있다.\n⑤ 프로젝트 학습은 학생 스스로 특정 주제나 과제를 탐구하고 해결하기 위해 계획을 수립하고 수행하여 결과물을 산출하고 공유하는 교수·학습 방안으로, 자기주도적으로 수학 지식과 경험을 통합하게 할 수 있다.\n⑥ 수학적 모델링은 학생의 삶과 연계된 현상을 다양한 수학적 표현 방식을 이용하여 수학적 모델로 만들고 수학적 모델을 다시 실생활이나 사회 및 자연 현상에 적용하는 교수·학습 방안으로, 수학의 응용에 대한 넓은 안목을 갖게 할 수 있다.\n⑦ 놀이 및 게임 학습은 호기심과 흥미를 유발하는 놀이 및 게임 활동을 활용하는 교수·학습 방안으로, 활동 속에서 수학 개념이나 원리를 탐구하고 동료와 경쟁 또는 협력하면서 자연스럽게 수학에 접근하고 수학 학습에 대한 자신감 및 의사소통 역량을 기르게 할 수 있다."},
+{id:"tm-ra", section:"teach-method", code:"(라)", label:"교수·학습 방법 (라) — 맞춤형 지도", flagged:false,
+ answer:"수학 교수·학습 과정에서 학생의 다양성을 고려하고 학생의 성장을 지원하기 위한 맞춤형 지도를 실시한다.\n① 학생의 수학 학습 수준이나 사고방식의 차이를 존중하여 학생 개인에게 적합한 학습 과제를 선정하여 제시하고, 학생이 소재나 과정을 선택하고 구성할 수 있도록 수학 학습 활동을 설계한다.\n② 학생의 시도와 성취에 대해 구체적으로 격려하고 칭찬하며, 동료 학생의 학습 수준이나 학습 결과에 대해 포용적인 교실 문화를 형성한다.\n③ 학생의 수학 학습 과정과 결과를 점검하여 학생의 성장 발전을 지원하고, 이때 온라인 학습 관리 시스템을 활용할 수 있다."},
+{id:"tm-ma", section:"teach-method", code:"(마)", label:"교수·학습 방법 (마) — 범교과·타교과 연계", flagged:false,
+ answer:"범교과 학습 또는 타 교과와의 연계를 고려하여 수학 교수·학습 과정을 설계할 수 있다.\n① 범교과 학습 주제에 관심을 갖고 각종 자료와 정보를 수집하여 수학적으로 분석 및 해석하게 하고, 수학적 분석 결과에 근거하여 토의와 토론에 참여하게 한다.\n② 가정, 학교, 지역사회와의 연계나 타 교과와의 연계를 고려하여 범교과 학습 주제에 대한 프로젝트를 수행할 수 있다.\n③ 수학적 모델링을 활용하여 타 교과의 내용을 맥락으로 수학의 개념, 원리, 법칙 등을 다루는 연계 수업을 할 수 있다."},
+{id:"tm-ba", section:"teach-method", code:"(바)", label:"교수·학습 방법 (바) — 온라인 교수·학습", flagged:false,
+ answer:"온라인 수학 교수·학습 상황에서는 다음 사항에 유의한다.\n① 원격수업을 실시하는 경우, 학생의 특성과 학습 내용의 성격에 적합하고 안정적으로 운영할 수 있는 온라인 학습 플랫폼을 선택하여 수업 목표, 수업 내용, 수업 전략을 설계하고 운영한다.\n② 학습 내용과 학생의 수준에 적합한 매체와 도구를 활용하여 학습의 효율성과 다양성을 도모한다.\n③ 원격수업에서도 학생 참여형 수업이 이루어질 수 있도록 하고 적절한 조언과 발문을 통하여 학습 참여를 이끌어 낸다.\n④ 온라인 교수·학습 자료를 활용할 때는 공표된 저작물의 출처를 명시하고 다른 누리집 등에 공유하지 않도록 안내한다."},
+
+{id:"ed-ga", section:"eval-dir", code:"(가)", label:"평가의 방향 (가)", flagged:false,
+ answer:"학생의 수학 학습에 대한 정보를 수집·활용하여 학생의 주도적 학습과 성장을 지원하고 교사의 수업 개선을 돕도록 지속적으로 평가를 실시한다."},
+{id:"ed-na", section:"eval-dir", code:"(나)", label:"평가의 방향 (나)", flagged:false,
+ answer:"수학과 교육과정에 제시된 성격, 목표, 내용 체계, 성취기준, 교수·학습과 일관성을 가지도록 평가를 실시한다."},
+{id:"ed-da", section:"eval-dir", code:"(다)", label:"평가의 방향 (다)", flagged:false,
+ answer:"학생의 수학 학습을 돕기 위해 수업과 평가를 통합하여 과정을 중시하는 평가를 실시한다."},
+{id:"ed-ra", section:"eval-dir", code:"(라)", label:"평가의 방향 (라)", flagged:false,
+ answer:"수학 내용 체계의 지식·이해, 과정·기능, 가치·태도를 학습 결과뿐 아니라 학습 과정에서 균형 있게 평가한다."},
+{id:"ed-ma", section:"eval-dir", code:"(마)", label:"평가의 방향 (마)", flagged:false,
+ answer:"학생이 평가 과정에 적극적으로 참여하고 스스로 설정한 수학 학습 목표에 대한 달성 여부를 점검할 수 있게 한다."},
+{id:"ed-ba", section:"eval-dir", code:"(바)", label:"평가의 방향 (바)", flagged:false,
+ answer:"학생의 사회·문화적 배경, 신체 특성 등이 불리하게 작용하지 않도록 평가를 실시하고, 학생의 사전 지식, 수학에 대한 흥미, 학습 유형, 학습 수준을 고려하여 평가 목적, 교수·학습 내용 및 방법에 따라 다양한 평가 방법을 적용한다."},
+{id:"ed-sa", section:"eval-dir", code:"(사)", label:"평가의 방향 (사)", flagged:false,
+ answer:"진단평가, 형성평가, 총괄평가 등을 적절히 활용하여 수학 학습 과정과 결과에 대한 구체적인 정보를 바탕으로 학생의 특성과 학습 결손을 파악하고 개별적 지원 방안을 마련한다."},
+{id:"ed-aa", section:"eval-dir", code:"(아)", label:"평가의 방향 (아)", flagged:false,
+ answer:"온라인 수학 수업에서 평가를 할 때 학습 환경 등의 외적 요소가 수학 학습 과정과 평가 결과에 영향을 미치지 않도록 한다."},
+{id:"ed-ja", section:"eval-dir", code:"(자)", label:"평가의 방향 (자)", flagged:false,
+ answer:"평가 절차를 개방적이고 공정하게 시행하고 학생의 수학 학습에 대한 의미 있는 정보를 학생, 학부모에게 제공한다."},
+
+{id:"em-ga", section:"eval-method", code:"(가)", label:"평가 방법 (가) — 과정 중심 평가", flagged:false,
+ answer:"수학 수업과 연계하여 과정을 중시하는 평가를 실시할 때는 다음 사항을 고려한다.\n① 성취기준을 중심으로 지식·이해, 과정·기능, 가치·태도 범주를 평가 요소로 구체화한다.\n② 교수·학습과 연계하여 적절한 평가 도구와 준거를 개발하고 평가를 실시한다.\n③ 평가 결과에 기반하여 학생의 학습 정보 및 수행 과정을 학생과 학부모에게 환류한다."},
+{id:"em-na", section:"eval-method", code:"(나)", label:"평가 방법 (나) — 교과 역량 평가", flagged:false,
+ answer:"수학 교과 역량을 평가할 때는 다음 사항을 고려한다.\n① 문제해결 역량의 평가는 수학의 개념, 원리, 법칙을 문제 상황에 적절히 활용하는지, 주어진 조건과 정보를 분석하고 적절한 해결 전략을 탐색하여 해결하는지, 문제해결 과정을 돌아보며 절차에 따라 타당하게 결과를 얻어내고 이를 반성하는지, 적극적이고 자신감 있게 문제해결에 참여하는지, 적절한 방법을 찾기 위해 끈기 있게 도전하는지 등을 고려한다.\n② 추론 역량의 평가는 수학의 개념, 원리, 법칙을 이해하는지, 논리적으로 절차를 수행하는지, 수학적 지식을 다양한 방법으로 탐구하는지, 관찰에 근거하여 추측하고 일반화를 할 수 있는지, 추측의 근거를 제시하는지, 타당한 정당화를 하는지, 수학에 대한 흥미와 관심을 갖는지, 체계적으로 사고하려는 성향이 있는지, 수학적 증거와 논리적 근거를 바탕으로 비판적으로 사고하는 태도를 갖는지 등을 고려한다.\n③ 의사소통 역량의 평가는 수학 용어, 기호, 표, 그래프 등 수학적 표현을 이해하고 정확하게 사용하는지, 적절한 수학적 표현을 선택할 수 있는지, 수학적 표현 간에 변환을 할 수 있는지, 수학적 아이디어나 수학 학습 과정 및 결과에 대해 표현하고 다른 사람의 견해를 이해하는지, 수학적 표현의 편리함을 인식하는지, 타인을 배려하고 의견을 존중하는지 등을 고려한다.\n④ 연결 역량의 평가는 영역이나 학년(군) 내용 사이에서 개념, 원리, 법칙을 적절하게 관련지어 이해하는지, 수학의 개념, 원리, 법칙을 연계하여 새로운 지식을 생성할 수 있는지, 수학을 실생활이나 타 교과의 지식, 기능, 경험에 적용할 수 있는지, 실생활이나 타 교과의 지식, 기능, 경험을 수학적으로 해석할 수 있는지, 수학을 바탕으로 창의적으로 관련성을 찾을 수 있는지, 수학의 유용성을 인식하는지 등을 고려한다.\n⑤ 정보처리 역량의 평가는 자료와 정보를 목적에 맞게 수집하고 변환하고 정리하는지, 자료를 바탕으로 도출한 결론이 적절한지, 교구나 공학 도구를 적절하게 활용하는지, 수학적 근거를 바탕으로 합리적으로 의사 결정하는 태도를 갖는지 등을 고려한다."},
+{id:"em-da", section:"eval-method", code:"(다)", label:"평가 방법 (다) — 평가 방안 6가지", flagged:false,
+ answer:"학생의 수학 학습 과정과 결과는 다양한 평가 방안을 사용하여 양적 또는 질적으로 평가한다.\n① 지필평가는 수학 내용 체계의 지식·이해, 과정·기능을 평가하는 데 활용할 수 있고, 선택형, 단답형, 서·논술형 등의 다양한 문항 유형을 사용할 수 있다.\n② 프로젝트 평가는 학생 스스로 특정 주제나 과제를 탐구하고 해결하기 위해 계획을 수립하고 수행하는 과정과 그 결과물을 평가하는 방안으로, 수학 내용 체계의 세 범주를 종합적으로 평가할 때 활용할 수 있다.\n③ 포트폴리오 평가는 학생의 성장에 대한 정보를 얻기 위해 수학 학습 수행과 그 결과물을 일정 기간 수집하여 평가하는 방안으로, 수학 교과 역량의 발달을 종합적으로 평가할 때 활용할 수 있다.\n④ 관찰 평가, 면담 평가, 구술 평가는 학생 개인 및 소집단을 관찰, 학생과의 질의응답, 학생의 발표를 통해 평가하는 방안으로, 학생의 사고 방법, 수행 과정, 수학 내용 체계의 가치·태도 등을 평가할 때 활용할 수 있다.\n⑤ 자기 평가는 학생 스스로 자신의 학습 과정과 결과를 평가하는 방안으로, 수학 내용의 이해와 수행 과정, 문제해결과 추론 과정의 반성, 자신의 생각 표현, 수학 내용 체계의 가치·태도 등을 평가할 때 활용할 수 있다.\n⑥ 동료 평가는 동료 학생들이 상대방을 서로 평가하는 방안으로, 협력 학습 상황에서 학생 개개인의 역할 수행이나 집단 활동의 기여를 평가할 때 활용할 수 있다."},
+{id:"em-ra", section:"eval-method", code:"(라)", label:"평가 방법 (라) — 교구·공학 도구 평가", flagged:false,
+ answer:"교구나 공학 도구를 활용하여 평가할 때는 다음 사항을 고려한다.\n① 성취기준의 도달 여부를 판단하는 데 교구나 공학 도구의 사용이 효과적인 경우 이를 활용한 평가를 실시할 수 있다.\n② 교구나 공학 도구를 활용하여 평가할 때는 교구나 공학 도구의 기능 및 조작이 아닌 수학 내용의 탐구 과정을 평가한다."},
+{id:"em-ma", section:"eval-method", code:"(마)", label:"평가 방법 (마) — 온라인 평가", flagged:false,
+ answer:"온라인 수학 교수·학습 환경에서 평가할 때는 다음 사항을 고려한다.\n① 온라인 수학 학습에서는 학생의 활동에 근거한 구체적인 자료를 사용하여 평가한다.\n② 온라인 학습 플랫폼이나 학습 관리 시스템을 이용하여 학생의 수행 과정을 관찰하고 개별 맞춤형으로 환류할 수 있다.\n③ 학생의 접속 환경 미비로 인한 불참 시 기회 부여 등에 대해 방안을 마련하고 형평성의 문제가 제기되지 않도록 사전에 안내한다."},
+];
+
+const SECTIONS = [
+  {id:"goal", name:"수학과 목표"},
+  {id:"teach-dir", name:"교수·학습의 방향"},
+  {id:"teach-method", name:"교수·학습 방법"},
+  {id:"eval-dir", name:"평가의 방향"},
+  {id:"eval-method", name:"평가 방법"},
+];
+
+const STORE_KEY = "curriculum-recall-progress-v1";
+let state = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+function saveState(){
+  localStorage.setItem(STORE_KEY, JSON.stringify(state));
+  if (window.__recall && window.__recall.onLocalChange) window.__recall.onLocalChange(state);
+}
+function getRec(id){ return state[id] || {}; }
+function setRec(id, patch){ state[id] = Object.assign({}, getRec(id), patch); saveState(); }
+
+// Hook used by the optional Firebase sync module at the bottom of this file.
+window.__recall = {
+  getState: () => state,
+  replaceState: (newState) => { state = newState || {}; localStorage.setItem(STORE_KEY, JSON.stringify(state)); render(); },
+  onLocalChange: null,
+};
+
+let currentSection = "goal";
+let currentIndex = 0;
+let mode = "item"; // item | blank
+let filterMode = "all";
+let revealShown = {};
+
+function itemsFor(section){
+  return DATA.filter(d => d.section === section);
+}
+function filteredItems(section){
+  let arr = itemsFor(section);
+  if (filterMode === "review") arr = arr.filter(d => (getRec(d.id).status||null) !== "O");
+  if (filterMode === "done") arr = arr.filter(d => getRec(d.id).status === "O");
+  return arr;
+}
+function sectionProgress(section){
+  const items = itemsFor(section);
+  const done = items.filter(d => getRec(d.id).status === "O").length;
+  return {done, total: items.length};
+}
+function overallProgress(){
+  const done = DATA.filter(d => getRec(d.id).status === "O").length;
+  return {done, total: DATA.length};
+}
+
+function escapeHtml(s){
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+function renderAnswerHtml(text){
+  const lines = text.split("\n").filter(l => l.trim().length);
+  return lines.map(line => {
+    let esc = escapeHtml(line);
+    esc = esc.replace(/\[⚠([^\]]*)\]/g, (m, inner) => `<span class="flag-inline">⚠${escapeHtml(inner)}</span>`);
+    return `<p>${esc}</p>`;
+  }).join("");
+}
+
+function renderSidebar(){
+  const nav = document.getElementById("sidebar");
+  nav.innerHTML = "";
+  SECTIONS.forEach(sec => {
+    const {done, total} = sectionProgress(sec.id);
+    const btn = document.createElement("button");
+    btn.className = "sec-btn" + (sec.id === currentSection ? " active" : "");
+    const pct = total ? Math.round(done/total*100) : 0;
+    btn.innerHTML = `<span class="name">${sec.name}</span><span class="count">${done} / ${total} 완료</span><span class="bar"><i style="width:${pct}%"></i></span>`;
+    btn.onclick = () => { currentSection = sec.id; currentIndex = 0; render(); };
+    nav.appendChild(btn);
+  });
+}
+
+function renderTopStat(){
+  const {done, total} = overallProgress();
+  document.getElementById("overallStat").textContent = `${done} / ${total} 완료`;
+  document.getElementById("overallFill").style.width = (total ? done/total*100 : 0) + "%";
+}
+
+function renderItemView(){
+  const view = document.getElementById("itemView");
+  const items = filteredItems(currentSection);
+  if (!items.length){
+    view.innerHTML = `<div class="card empty-state">이 필터에 해당하는 항목이 없습니다. 필터를 바꿔보세요.</div>`;
+    return;
+  }
+  if (currentIndex >= items.length) currentIndex = 0;
+  const item = items[currentIndex];
+  const rec = getRec(item.id);
+  const shown = !!revealShown[item.id];
+  const editing = rec.editing;
+  const answerText = rec.editedText != null ? rec.editedText : item.answer;
+  const secName = SECTIONS.find(s => s.id === item.section).name;
+
+  view.innerHTML = `
+    <div class="card">
+      <div class="card-head">
+        <div>
+          <div class="sec-label">${secName}</div>
+          <div class="badge-row" style="margin-top:4px;">
+            <span class="code-badge">${item.code}</span>
+            <span style="font-size:0.85rem;color:var(--ink-soft)">${item.label}</span>
+            ${item.flagged ? `<span class="flag-badge">⚠ 원문 일부 손상</span>` : ""}
+          </div>
+        </div>
+        ${rec.status ? `<span class="status-badge status-${rec.status}">${rec.status === "O" ? "완벽" : rec.status === "△" ? "애매" : "다시"}</span>` : ""}
+      </div>
+
+      <label class="field-label">내 답 (직접 인출)</label>
+      <textarea class="recall-input" id="recallInput" placeholder="여기에 원문을 최대한 그대로 써 보세요...">${escapeHtml(rec.draft || "")}</textarea>
+
+      <div class="actions-row">
+        ${!shown ? `<button class="btn primary" id="revealBtn">정답 확인</button>` : `<button class="btn ghost" id="hideBtn">정답 숨기기</button>`}
+        <button class="btn ghost" id="clearBtn">입력 지우기</button>
+      </div>
+
+      ${shown ? `
+      <div class="reveal">
+        <div class="reveal-head">
+          <span class="tag">정답 (원문)</span>
+          ${!editing ? `<button class="pencil-btn" id="editBtn">✎ 원문 수정</button>` : `<button class="pencil-btn" id="saveEditBtn">저장</button>`}
+        </div>
+        ${editing
+          ? `<div class="answer-edit" id="answerEditArea" contenteditable="true">${escapeHtml(answerText)}</div>
+             <div class="edit-note">원본 PDF를 보고 정확한 문장으로 고친 뒤 저장하면 이 기기에 계속 저장됩니다.</div>`
+          : `<div class="answer-text">${renderAnswerHtml(answerText)}</div>`
+        }
+      </div>
+      <div class="grade-row">
+        <span class="label">자가 채점</span>
+        <button class="grade-btn" data-g="X" style="${rec.status==='X'?'':''}">✕ 다시</button>
+        <button class="grade-btn" data-g="△">△ 애매</button>
+        <button class="grade-btn" data-g="O">○ 완벽</button>
+      </div>
+      ` : ""}
+
+      <div class="nav-row">
+        <div class="progress-mini">${currentIndex+1} / ${items.length}</div>
+        <div class="right">
+          <button class="btn" id="prevBtn">← 이전</button>
+          <button class="btn" id="nextBtn">다음 →</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // wire events
+  const input = document.getElementById("recallInput");
+  input.addEventListener("input", () => setRec(item.id, {draft: input.value}));
+
+  const revealBtn = document.getElementById("revealBtn");
+  if (revealBtn) revealBtn.onclick = () => { revealShown[item.id] = true; renderItemView(); };
+  const hideBtn = document.getElementById("hideBtn");
+  if (hideBtn) hideBtn.onclick = () => { revealShown[item.id] = false; renderItemView(); };
+  const clearBtn = document.getElementById("clearBtn");
+  if (clearBtn) clearBtn.onclick = () => { setRec(item.id, {draft: ""}); renderItemView(); };
+
+  const editBtn = document.getElementById("editBtn");
+  if (editBtn) editBtn.onclick = () => { setRec(item.id, {editing: true}); renderItemView(); };
+  const saveEditBtn = document.getElementById("saveEditBtn");
+  if (saveEditBtn) saveEditBtn.onclick = () => {
+    const area = document.getElementById("answerEditArea");
+    setRec(item.id, {editedText: area.innerText, editing: false});
+    renderItemView();
+  };
+
+  document.querySelectorAll(".grade-btn").forEach(b => {
+    if (rec.status === b.dataset.g) b.classList.add("active");
+    b.onclick = () => {
+      setRec(item.id, {status: rec.status === b.dataset.g ? null : b.dataset.g});
+      renderSidebar(); renderTopStat(); renderItemView();
+    };
+  });
+
+  document.getElementById("prevBtn").onclick = () => { currentIndex = (currentIndex - 1 + items.length) % items.length; render(); };
+  document.getElementById("nextBtn").onclick = () => { currentIndex = (currentIndex + 1) % items.length; render(); };
+}
+
+function renderBlankView(){
+  const view = document.getElementById("blankView");
+  const items = itemsFor(currentSection);
+  const secName = SECTIONS.find(s => s.id === currentSection).name;
+  const shown = !!revealShown["__blank_" + currentSection];
+  const draftKey = "__blankdraft_" + currentSection;
+  const draft = state[draftKey]?.draft || "";
+
+  view.innerHTML = `
+    <div class="blank-wrap">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="sec-label">백지 전체 인출</div>
+            <div class="badge-row" style="margin-top:4px;">
+              <span class="code-badge">${secName}</span>
+              <span style="font-size:0.85rem;color:var(--ink-soft)">항목 라벨 없이 전체를 떠올려 써보세요</span>
+            </div>
+          </div>
+        </div>
+        <label class="field-label">백지 답안</label>
+        <textarea class="recall-input" id="blankInput" placeholder="이 섹션의 내용을 처음부터 끝까지 기억나는 대로 써보세요...">${escapeHtml(draft)}</textarea>
+        <div class="actions-row">
+          ${!shown ? `<button class="btn primary" id="blankRevealBtn">전체 정답 보기</button>` : `<button class="btn ghost" id="blankHideBtn">정답 숨기기</button>`}
+        </div>
+        ${shown ? `
+        <div class="reveal">
+          <div class="reveal-head"><span class="tag">전체 정답 (원문)</span></div>
+          <div class="answer-text full-answer">
+            ${items.map(it => {
+              const rec = getRec(it.id);
+              const text = rec.editedText != null ? rec.editedText : it.answer;
+              return `<p><strong>${it.code}</strong> ${escapeHtml(it.label)}${it.flagged?' <span class="flag-inline">⚠</span>':''}</p>` + renderAnswerHtml(text);
+            }).join("")}
+          </div>
+        </div>` : ""}
+      </div>
+    </div>
+  `;
+
+  const blankInput = document.getElementById("blankInput");
+  blankInput.addEventListener("input", () => { state[draftKey] = {draft: blankInput.value}; saveState(); });
+  const revealBtn = document.getElementById("blankRevealBtn");
+  if (revealBtn) revealBtn.onclick = () => { revealShown["__blank_" + currentSection] = true; renderBlankView(); };
+  const hideBtn = document.getElementById("blankHideBtn");
+  if (hideBtn) hideBtn.onclick = () => { revealShown["__blank_" + currentSection] = false; renderBlankView(); };
+}
+
+function render(){
+  renderSidebar();
+  renderTopStat();
+  document.getElementById("itemView").style.display = mode === "item" ? "block" : "none";
+  document.getElementById("blankView").style.display = mode === "blank" ? "block" : "none";
+  document.getElementById("tabItem").classList.toggle("active", mode === "item");
+  document.getElementById("tabBlank").classList.toggle("active", mode === "blank");
+  if (mode === "item") renderItemView(); else renderBlankView();
+}
+
+document.getElementById("tabItem").onclick = () => { mode = "item"; render(); };
+document.getElementById("tabBlank").onclick = () => { mode = "blank"; render(); };
+document.getElementById("filterSelect").onchange = (e) => { filterMode = e.target.value; currentIndex = 0; render(); };
+
+render();
+</script>
+
+<!--
+  ============================================================================
+  클라우드 동기화(Firebase) 설정 안내
+  ============================================================================
+  1. https://console.firebase.google.com 에서 새 프로젝트를 만드세요.
+  2. 왼쪽 메뉴 Build > Authentication > Sign-in method 에서 "Google"을 사용 설정하세요.
+  3. 왼쪽 메뉴 Build > Firestore Database 에서 데이터베이스를 만드세요(프로덕션 모드).
+     그 다음 "규칙" 탭에서 아래 규칙으로 바꾸고 게시하세요 (본인 데이터만 읽고 쓸 수 있게 제한):
+
+       rules_version = '2';
+       service cloud.firestore {
+         match /databases/{database}/documents {
+           match /progress/{uid} {
+             allow read, write: if request.auth != null && request.auth.uid == uid;
+           }
+         }
+       }
+
+  4. 프로젝트 설정(톱니바퀴) > 일반 > "내 앱"에서 웹 앱을 추가(</> 아이콘)하면
+     firebaseConfig 객체가 나옵니다. 그 값을 아래 CONFIG 자리에 그대로 붙여넣으세요.
+  5. 이 파일을 GitHub 저장소에 올리고 Settings > Pages 에서 배포하면,
+     그 주소로 어느 기기에서든 접속해 Google로 로그인만 하면 채점 기록이 자동으로 동기화됩니다.
+  ============================================================================
+-->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, doc, getDoc, setDoc, onSnapshot }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  // ↓↓↓ Firebase 콘솔에서 복사한 값으로 이 객체를 교체하세요 ↓↓↓
+  const firebaseConfig = {
+    apiKey: "AIzaSyB6nLd1m0FJq5ZjziRlXwZ-3PEgPCk2laQ",
+    authDomain: "curriculum-c2e80.firebaseapp.com",
+    projectId: "curriculum-c2e80",
+    storageBucket: "curriculum-c2e80.firebasestorage.app",
+    messagingSenderId: "41936856007",
+    appId: "1:41936856007:web:dbaee2bfab6942878a6fe2",
+  };
+  // ↑↑↑ 여기까지 ↑↑↑
+
+  const isConfigured = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("YOUR_");
+  const authArea = document.getElementById("authArea");
+
+  function renderAuthUI(user){
+    if (!isConfigured){
+      authArea.innerHTML = `<span style="font-size:0.72rem;color:var(--ink-faint)">클라우드 동기화 미설정 (이 기기에만 저장됨)</span>`;
+      return;
+    }
+    if (user){
+      authArea.innerHTML =
+        `<span style="font-size:0.78rem;color:var(--ink-soft)">${user.displayName || user.email}로 동기화 중</span> ` +
+        `<button class="btn" style="padding:5px 10px;font-size:0.75rem" id="signOutBtn">로그아웃</button>`;
+      document.getElementById("signOutBtn").onclick = () => signOut(auth);
+    } else {
+      authArea.innerHTML = `<button class="btn primary" style="padding:6px 14px;font-size:0.78rem" id="signInBtn">Google로 로그인 (기기 간 동기화)</button>`;
+      document.getElementById("signInBtn").onclick = () => signInWithPopup(auth, new GoogleAuthProvider()).catch(err => alert("로그인 실패: " + err.message));
+    }
+  }
+
+  if (!isConfigured){
+    renderAuthUI(null);
+  } else {
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    let unsubSnapshot = null;
+    let suppressPush = false;
+    let pushTimer = null;
+
+    window.__recall.onLocalChange = (currentState) => {
+      const user = auth.currentUser;
+      if (!user || suppressPush) return;
+      clearTimeout(pushTimer);
+      pushTimer = setTimeout(() => {
+        setDoc(doc(db, "progress", user.uid), { state: currentState, updatedAt: Date.now() })
+          .catch(err => console.error("동기화 저장 실패", err));
+      }, 700);
+    };
+
+    onAuthStateChanged(auth, async (user) => {
+      renderAuthUI(user);
+      if (unsubSnapshot) { unsubSnapshot(); unsubSnapshot = null; }
+      if (!user) return;
+
+      const ref = doc(db, "progress", user.uid);
+      const snap = await getDoc(ref);
+      suppressPush = true;
+      if (snap.exists()) {
+        window.__recall.replaceState(snap.data().state || {});
+      } else {
+        await setDoc(ref, { state: window.__recall.getState(), updatedAt: Date.now() });
+      }
+      suppressPush = false;
+
+      unsubSnapshot = onSnapshot(ref, (snap) => {
+        if (!snap.exists()) return;
+        suppressPush = true;
+        window.__recall.replaceState(snap.data().state || {});
+        suppressPush = false;
+      });
+    });
+  }
+</script>
