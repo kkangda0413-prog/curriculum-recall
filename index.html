@@ -726,9 +726,10 @@ render();
   // ↑↑↑ 여기까지 ↑↑↑
 
   const isConfigured = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("YOUR_");
-  const authArea = document.getElementById("authArea");
+ const authArea = document.getElementById("authArea");
+let auth, db;
 
-  function renderAuthUI(user){
+function renderAuthUI(user){
     if (!isConfigured){
       authArea.innerHTML = `<span style="font-size:0.72rem;color:var(--ink-faint)">클라우드 동기화 미설정 (이 기기에만 저장됨)</span>`;
       return;
@@ -747,9 +748,9 @@ render();
   if (!isConfigured){
     renderAuthUI(null);
   } else {
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+   const app = initializeApp(firebaseConfig);
+auth = getAuth(app);
+db = getFirestore(app);
 
     let unsubSnapshot = null;
     let suppressPush = false;
